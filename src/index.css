@@ -1,5 +1,9 @@
-body {
+*{
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +14,183 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.loginContainer{
+  max-width: 400px;
+  margin: 50px auto;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.loginForm *{
+  width: 80%;
+  display: block;
+  margin: 10px auto;
+}
+
+.loginForm select{
+  outline: none;
+  padding: 10px;
+}
+
+.btn{
+  color: white;
+  background-color: teal;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.question-container{
+  width: 600px;
+  height: 900px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 1px solid black;
+}
+
+.choosePolls{
+  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.choosePolls button{
+  padding: 15px;
+  background-color: teal;
+  color: white;
+  border: 1px solid #C0C0C0;
+}
+
+.pollCard{
+  width: 450px;
+  height: 180px;
+  margin: 30px auto 0 auto;
+  border: 1px solid #C0C0C0;
+  position: relative;
+}
+
+.title{
+  width: 100%;
+  position: absolute;
+  background-color:#ececec;
+}
+
+.title h3{
+  margin-left: 15px;
+}
+
+.pollContent{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  margin-top: 80px; 
+}
+
+.pollContent img{
+  border-radius: 50%;
+  width:80px;
+  height: 80px;
+  margin:0 20px;
+}
+
+.pollDetails{
+  line-height: 8px;
+  margin-top: -20px;
+  margin-left: 10px;
+}
+
+.viewBtn{
+  color: white;
+  background-color: teal;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+.nav{
+  background-color: #000000;
+  height: 50px;
+  position: relative;
+}
+.nav ul{
+  position: absolute;
+  list-style: none;
+  margin-top: 10px;
+}
+.nav li{
+  display: inline;
+  font-size: 20px;
+  padding: 20px;
+  margin-right: 20px;
+  color: white;
+}
+.nav li img{
+  display: inline;
+  width: 30px;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+.nav .navLink{
+  color: white;
+  text-decoration: none;
+}
+
+.navLink:hover{
+  background-color: white;
+  color: #000000;
+}
+
+.card-content{
+  width: 450px;
+  height: 150px;
+  margin: 30px auto 0 auto;
+  border: 1px solid #C0C0C0;
+  display: grid;
+}
+
+.card-img{
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.card-img img{
+  width: 80px;
+  border-radius: 50%;
+  display: inline;
+  position: absolute;
+  margin: 20px;
+}
+
+.card-info{
+  grid-column-start: 6;
+  grid-column-end: 9;
+  margin-top: 20px;
+}
+
+.card-info p{
+  font-weight: bold;
+}
+
+.score {
+  margin-top: 20px;
+  grid-column-start: 9;
+  grid-column-end: 11;
+  position: relative;
+}
+
+.scoreTag{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: teal;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: larger;
 }
