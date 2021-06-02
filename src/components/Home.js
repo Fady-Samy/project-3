@@ -1,16 +1,15 @@
 import React, { Component,Fragment } from 'react';
-import Polls from './AnsweredPolls'
-import Nav from './Nav'
-import LeaderBoard from './LeaderBoard'
 import {connect} from 'react-redux'
+
+import Polls from './Polls'
+import Nav from './Nav'
 
 class Home extends Component {
     state ={
-        choosed:"answered"
+        choosed:"unanswered"
     }
 
     handleChange = (e) =>{
-        console.log(e.target.value)
         this.setState({
             choosed :e.target.value,
           })

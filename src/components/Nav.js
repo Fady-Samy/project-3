@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom'
-
+import { NavLink,Redirect, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-
 import {setAuthedUser} from '../actions/authedUser'
 
-import {Link} from 'react-router-dom'
 
 class Nav extends Component{
+    state={
+        loggedUser: this.props.loggedUser
+    }
     signOut = () =>{
         this.props.dispatch(setAuthedUser(null));
+        this.setState({
+            loggedUser:null
+        })
     }
 
     render(){
+        if(this.state.loggedUser ===null ){
+            return <Redirect to='/'/>
+        }
         return (
             <nav className='nav'>
                 <ul>
@@ -33,7 +39,7 @@ class Nav extends Component{
                     </li>
                     <li>
                         <span>Hello, {this.props.loggedUser}</span>
-                        <img src={this.props.avatar}></img>
+                        <img src={this.props.avatar} alt="avatar"></img>
                     </li>
                     <li>
                         <Link to='/' onClick={this.signOut}> Signout </Link>  

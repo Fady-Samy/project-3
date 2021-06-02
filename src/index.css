@@ -46,7 +46,7 @@ code {
 
 .question-container{
   width: 600px;
-  height: 900px;
+  height: auto;
   margin: 0 auto;
   margin-top: 50px;
   border: 1px solid black;
@@ -111,6 +111,7 @@ code {
   border-radius: 5px;
   text-decoration: none;
   text-align: center;
+  width: 100%;
 }
 .nav{
   background-color: #000000;
@@ -193,4 +194,93 @@ code {
   height: 50px;
   border-radius: 50%;
   font-size: larger;
+}
+
+.newquest-card{
+  width: 450px;
+  height: auto;
+  margin: 30px auto 0px auto;
+  border: 1px solid #C0C0C0;
+}
+
+.card-title{
+  border-bottom: 2px solid #C0C0C0;
+  padding: 5px;
+  text-align: center;
+}
+
+.question{
+  margin:10px 20px;
+}
+.question input{
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #C0C0C0;
+  outline: none;
+}
+#or{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.quest-card{
+  width: 500px;
+  height: 350px;
+  margin: 30px auto 0 auto;
+  border: 1px solid black;
+  position: relative;
+}
+
+.w3-border{
+  border-radius: 10px;
+}
+
+.w3-green{
+  height:24px;
+  text-align: center;
+  border-radius: 10px;
+  
+}
+
+.unanswered{
+  margin-top: 50px;
+}
+
+.question-options label{
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.quest-info{
+  display: flex;
+  flex-direction: row;
+}
+
+.quest-info img{
+  border-radius: 50%;
+  width:80px;
+  height: 80px;
+  margin:60px 20px;
+}
+
+.answered{
+  margin-top: 50px;
+}
+
+.answered p{
+  font-weight: bold;
+}
+
+.selected{
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(57, 165, 102);
+  background-color: rgba(57, 165, 102,0.1);
+}
+.selected p{
+  color: rgb(57, 165, 102);
+}
+
+#result{
+  text-align: center;
 }

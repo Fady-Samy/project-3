@@ -123,3 +123,12 @@ installed react-router-dom package for routing
 added Navbar Component
 
 added the leaderboard component
+
+added feature of creating new question
+
+added feature to view every question
+
+added feature to view answered question with user choice
+
+added feature to answered unanswered question
+
