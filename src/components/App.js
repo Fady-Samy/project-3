@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component, Fragment} from 'react';
 import {connect} from 'react-redux'
 import {handleInitialData} from '../actions/shared'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
@@ -17,12 +17,17 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Route path='/' exact component={Login}/>
-          <Route path='/home' component={Home}/>
-          <Route path='/leaderboard' component={LeaderBoard}/>
-          <Route path='/new' component={NewQuestion}/>
-          <Route path='/question/:id' component={QuestionPage}/>
+        <div> {
+          this.props.authedUser!==null ?
+          <Fragment>
+            <Route path='/' exact component={Login}/>
+            <Route path='/home' component={Home}/>
+            <Route path='/leaderboard' component={LeaderBoard}/>
+            <Route path='/new' component={NewQuestion}/>
+            <Route path='/question/:id' component={QuestionPage}/>
+          </Fragment>
+          : <Route path='/' exact component={Login}/>
+          }
         </div>
       </Router>
       
@@ -30,4 +35,10 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+function mapStateToProps({authedUser}){
+  return{
+    authedUser
+  }
+}
+
+export default connect(mapStateToProps)(App);

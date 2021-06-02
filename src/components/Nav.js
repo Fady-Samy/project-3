@@ -5,20 +5,13 @@ import {setAuthedUser} from '../actions/authedUser'
 
 
 class Nav extends Component{
-    state={
-        loggedUser: this.props.loggedUser
-    }
+    
     signOut = () =>{
         this.props.dispatch(setAuthedUser(null));
-        this.setState({
-            loggedUser:null
-        })
     }
 
     render(){
-        if(this.state.loggedUser ===null ){
-            return <Redirect to='/'/>
-        }
+        
         return (
             <nav className='nav'>
                 <ul>

@@ -132,3 +132,8 @@ added feature to view answered question with user choice
 
 added feature to answered unanswered question
 
+fixed sign out bug
+
+fixed the sign in without selecting user error
+
+fixed user navigating to any page without login

@@ -5,27 +5,17 @@ import {Redirect} from 'react-router-dom'
 import Nav from './Nav'
 
 class QuestionPage extends Component {
-    state={
-        answered:false
-    }
     handleSubmit = (e) =>{
         e.preventDefault()
         let answer= document.querySelectorAll("input[name=answer]:checked")[0].value
         const {dispatch,id} =this.props
         dispatch(handleAddAnswer(id,answer))
-        this.setState({
-            answered:true
-        })
     }
     render() {
         const {id,users,questions,isAnswered,answer,numUsers,choosedOne,choosedTwo} = this.props
         const onePercntage = Math.floor(choosedOne/numUsers*100)
         const twoPercntage = Math.floor(choosedTwo/numUsers*100)
 
-        // if(this.state.answered === true){
-        //     return <Redirect to={{
-        //         pathname : `/question/${id}`}}/>
-        // }
         return (
             <Fragment>
                 <Nav/>

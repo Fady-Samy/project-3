@@ -6,10 +6,19 @@ import {setAuthedUser} from '../actions/authedUser'
 import {handleQuestions} from '../actions/questions'
 
 class Login extends Component {
-
+    state={
+        userSelected:null
+    }
     componentDidMount(){
         this.props.dispatch(handleQuestions())
-      }
+    }
+
+    handleChoosed = () =>{
+        const choosed = document.getElementById('userSelected').value;
+        this.setState({
+            userSelected: choosed
+        })
+    }
 
     handleLogin = ()=>{
         const choosed = document.getElementById('userSelected').value;
@@ -25,11 +34,12 @@ class Login extends Component {
     }
 
     render() {
+        const {userSelected} = this.state
         return (
             <div className='loginContainer'>
                 <h3>Welcome! Please Sign in</h3>
                 <form className='loginForm'>
-                    <select id="userSelected" defaultValue={"select"} onChange={this.handleLogin}>
+                    <select id="userSelected" defaultValue={"select"} onChange={this.handleChoosed}>
                         <option disabled value="select"> -- select user -- </option>
                         {this.props.usersId.map((id)=>(
                             <option key={id}>
@@ -37,7 +47,7 @@ class Login extends Component {
                             </option>
                         ))}
                     </select>
-                    {this.props.authedUser!==null && <Link to={"/home"} className='btn'>Sign In</Link>}
+                    <Link to={userSelected!==null ? "/home" : '/'} className='btn' onClick={this.handleLogin}>Sign In</Link>
                 </form>
             </div>
         );
