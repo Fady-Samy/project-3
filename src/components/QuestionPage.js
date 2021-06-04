@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux'
 import {handleAddAnswer} from '../actions/questions'
-import {Redirect} from 'react-router-dom'
 import Nav from './Nav'
 
 class QuestionPage extends Component {

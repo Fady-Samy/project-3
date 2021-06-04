@@ -284,3 +284,34 @@ code {
 #result{
   text-align: center;
 }
+
+.create-user{
+  width: 500px;
+  margin: 80px auto;
+  border: 1px solid black;
+}
+
+.create-user-form{
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.create-user .btn{
+  width: 200px;
+  margin-left: 150px;
+  margin-bottom: 20px;
+}
+
+.create-contact-avatar-input {
+  margin-right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #C0C0C0;
+  background-image: url('./icons/person.svg');
+  background-size: 32px 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}

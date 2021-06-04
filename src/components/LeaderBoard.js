@@ -39,7 +39,7 @@ function mapStateToProps({users}){
         let name= users[user].name
         let avatar = users[user].avatarURL
         let answered = Object.keys(users[user].answers).length
-        let asked = users[user].questions.length
+        let asked = users[user].questions.length===0 ? 0 : users[user].questions.length
         let score = answered + asked
         leaderUsers.push([name,avatar,answered,asked,score,id])
     })

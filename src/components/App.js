@@ -8,6 +8,7 @@ import Home from './Home'
 import LeaderBoard from './LeaderBoard';
 import NewQuestion from './NewQuestion';
 import QuestionPage from './QuestionPage';
+import Signup from './Signup';
 
 class App extends Component {
 
@@ -26,7 +27,12 @@ class App extends Component {
             <Route path='/new' component={NewQuestion}/>
             <Route path='/question/:id' component={QuestionPage}/>
           </Fragment>
-          : <Route path='/' exact component={Login}/>
+          : 
+          <Fragment>
+            <Route path='/' exact component={Login}/>
+            <Route path='/signup' component={Signup}/>
+          </Fragment>
+         
           }
         </div>
       </Router>

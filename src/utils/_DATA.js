@@ -161,11 +161,49 @@ export function _saveQuestion (question) {
         ...users,
         [authedUser]: {
           ...users[authedUser],
-          questions: users[authedUser].questions.push(formattedQuestion.id)
+          questions: users[authedUser].questions.concat([formattedQuestion.id])
         }
       }
 
-      res(formattedQuestion)
+      let result={
+        users,
+        question:formattedQuestion
+      } 
+
+      res(result)
+    }, 1000)
+  })
+}
+
+//Adding New User question for first time
+export function saveNewUserQuestion (question) {
+  return new Promise((res, rej) => {
+    const authedUser = question.author;
+    const formattedQuestion = formatQuestion(question);
+    console.log("here prevAnswers are: ", question.prevAnswers)
+    setTimeout(() => {
+      questions = {
+        ...questions,
+        [formattedQuestion.id]: formattedQuestion
+      }
+      
+      users = {
+        ...users,
+        [authedUser]: {
+          id: authedUser,
+          name: question.name,
+          avatarURL:question.avatarURL,
+          answers:question.prevAnswers,
+          questions: [formattedQuestion.id]
+        }
+      }
+
+      let result={
+        users,
+        question: formattedQuestion
+      }
+
+      res(result)
     }, 1000)
   })
 }
@@ -181,7 +219,45 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
           answers: {
             ...users[authedUser].answers,
             [qid]: answer
+          },
+        }
+      }
+
+      questions = {
+        ...questions,
+        [qid]: {
+          ...questions[qid],
+          [answer]: {
+            ...questions[qid][answer],
+            votes: questions[qid][answer].votes.concat([authedUser])
           }
+        }
+      }
+
+    let result = {
+        users,
+        questions
+      }
+      res(result)
+    }, 500)
+  })
+}
+
+//Adding New User question's answer for first time
+export function saveNewUserQuestionAnswer({ authedUser, qid, answer,name,avatarURL,prevQuestions }) {
+  console.log(authedUser,qid,answer,"here")
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      users = {
+        ...users,
+        [authedUser]: {
+          id: authedUser,
+          name: name,
+          avatarURL:avatarURL,
+          answers:{
+            [qid]:answer
+          },
+          questions:prevQuestions
         }
       }
 

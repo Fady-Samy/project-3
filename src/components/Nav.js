@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink,Redirect, Link} from 'react-router-dom'
+import { NavLink, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {setAuthedUser} from '../actions/authedUser'
 

@@ -48,6 +48,8 @@ class Login extends Component {
                         ))}
                     </select>
                     <Link to={userSelected!==null ? "/home" : '/'} className='btn' onClick={this.handleLogin}>Sign In</Link>
+                    <span>Need account?</span>
+                    <Link to='/signup'>Sign up</Link>
                 </form>
             </div>
         );

@@ -137,3 +137,5 @@ fixed sign out bug
 fixed the sign in without selecting user error
 
 fixed user navigating to any page without login
+
+added feature for creating new user
