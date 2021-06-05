@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux'
+import { Redirect } from 'react-router'
 import {handleAddAnswer} from '../actions/questions'
 import Nav from './Nav'
 
@@ -18,7 +19,9 @@ class QuestionPage extends Component {
         const {id,users,questions,isAnswered,answer,numUsers,choosedOne,choosedTwo} = this.props
         const onePercntage = Math.floor(choosedOne/numUsers*100)
         const twoPercntage = Math.floor(choosedTwo/numUsers*100)
-
+        if(!Object.keys(questions).includes(id)){
+            return <Redirect to='/pageerror'/>
+        }
         return (
             <Fragment>
                 <Nav/>

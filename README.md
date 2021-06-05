@@ -137,3 +137,9 @@ fixed sign up without entering a name error
 fixed submitting question answer without choosing an option error
 
 fixed signup with user name that already exist
+
+added feature to ask user to login before any requestedpage is shown.
+
+added feature to arrange polls in both categories from recently created to the least created
+
+added feature to show a 404 page if user access a poll that does not exist

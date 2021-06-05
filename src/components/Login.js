@@ -7,8 +7,10 @@ import {handleQuestions} from '../actions/questions'
 
 class Login extends Component {
     state={
-        userSelected:null
+        userSelected:null,
+        path:''
     }
+
     componentDidMount(){
         this.props.dispatch(handleQuestions())
     }
@@ -18,6 +20,12 @@ class Login extends Component {
         this.setState({
             userSelected: choosed
         })
+        if(choosed!==undefined && this.props.toPath==='/'){
+            this.setState({path:'/home'})
+        }else if(choosed!==undefined && this.props.toPath!=='/'){
+            this.setState({path:this.props.toPath})
+        }
+        
     }
 
     handleLogin = ()=>{
@@ -30,11 +38,12 @@ class Login extends Component {
                 break
             }
         }
+        
         this.props.dispatch(setAuthedUser(id))
     }
 
     render() {
-        const {userSelected} = this.state
+        const {userSelected,path} = this.state
         return (
             <div className='loginContainer'>
                 <h3>Welcome! Please Sign in</h3>
@@ -47,7 +56,7 @@ class Login extends Component {
                             </option>
                         ))}
                     </select>
-                    <Link to={userSelected!==null ? "/home" : '/'} className='btn' onClick={this.handleLogin}>Sign In</Link>
+                    <Link to={userSelected===null ? '/' : `${path}`} className='btn' onClick={this.handleLogin}>Sign In</Link>
                     <span>Need account?</span>
                     <Link to='/signup'>Sign up</Link>
                 </form>
@@ -58,10 +67,12 @@ class Login extends Component {
 
 //Getting the users from the state
 function mapStateToProps({users,authedUser}){
+    const toPath = window.location.pathname
     return{
         usersId: Object.keys(users),
         users,
-        authedUser
+        authedUser,
+        toPath
     }
 }
 

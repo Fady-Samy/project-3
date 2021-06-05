@@ -9,6 +9,7 @@ import LeaderBoard from './LeaderBoard';
 import NewQuestion from './NewQuestion';
 import QuestionPage from './QuestionPage';
 import Signup from './Signup';
+import PageError from './PageError';
 
 class App extends Component {
 
@@ -26,12 +27,12 @@ class App extends Component {
             <Route path='/leaderboard' component={LeaderBoard}/>
             <Route path='/add' component={NewQuestion}/>
             <Route path='/question/:id' component={QuestionPage}/>
+            <Route path='/pageerror' component={PageError}/>
           </Fragment>
           : 
           <Fragment>
-            
-            <Route path='/' exact component={Login}/>
             <Route path='/signup' component={Signup}/>
+            <Route path='/*'component={Login}/>
           </Fragment>
          
           }
@@ -42,9 +43,11 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({authedUser}){
+function mapStateToProps({authedUser},props){
+  const path = window.location.pathname
   return{
-    authedUser
+    authedUser,
+    path
   }
 }
 

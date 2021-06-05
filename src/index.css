@@ -315,3 +315,14 @@ code {
   background-repeat: no-repeat;
   border-radius: 50%;
 }
+
+.page-error{
+  width: 500px;
+  margin: 50px auto;
+  border: 1px solid #C0C0C0;
+  box-shadow: 5px 10px #888888;
+}
+
+.page-error *{
+  padding: 20px;
+}

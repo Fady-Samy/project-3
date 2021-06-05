@@ -33,9 +33,11 @@ class Polls extends Component {
     }
 }
 function mapStateToProps({questions,users,authedUser},{choosed}){
+    const userAnsweredQuestions= Object.keys(users[authedUser].answers)
+    userAnsweredQuestions.sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+    let UnAnsQuest = Object.keys(questions).filter(questId=> !userAnsweredQuestions.includes(questId))
+    UnAnsQuest.sort((a,b) => questions[b].timestamp - questions[a].timestamp)
     if(choosed ==="unanswered"){
-        const userAnsweredQuestions= Object.keys(users[authedUser].answers)
-        let UnAnsQuest = Object.keys(questions).filter(questId=> !userAnsweredQuestions.includes(questId))
         return{
             UnAnsQuest,
             questions,
@@ -43,7 +45,7 @@ function mapStateToProps({questions,users,authedUser},{choosed}){
         }
     }else{
         return{
-            userAnsweredQuestions: Object.keys(users[authedUser].answers),
+            userAnsweredQuestions,
             questions,
             users,
         }
