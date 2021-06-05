@@ -34,7 +34,7 @@ class LeaderBoard extends Component {
 
 function mapStateToProps({users}){
     let leaderUsers=[]
-    Object.keys(users).map( (user) =>{
+    Object.keys(users).forEach( (user) =>{
         let id = users[user].id
         let name= users[user].name
         let avatar = users[user].avatarURL

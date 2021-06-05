@@ -6,9 +6,13 @@ import Nav from './Nav'
 class QuestionPage extends Component {
     handleSubmit = (e) =>{
         e.preventDefault()
-        let answer= document.querySelectorAll("input[name=answer]:checked")[0].value
+        let selected = document.querySelectorAll("input[name=answer]:checked")[0]
+        let answer= selected ? selected.value : ""
         const {dispatch,id} =this.props
-        dispatch(handleAddAnswer(id,answer))
+        if(answer){
+            dispatch(handleAddAnswer(id,answer))
+        }
+       
     }
     render() {
         const {id,users,questions,isAnswered,answer,numUsers,choosedOne,choosedTwo} = this.props
@@ -71,7 +75,7 @@ function mapStateToProps({authedUser,questions,users},props){
     let numUsers= Object.keys(users);
     let choosedOne=[]
     let choosedTwo=[]
-    numUsers.map( (userId) => {
+    numUsers.forEach( (userId) => {
         if(Object.keys(users[userId].answers).includes(id)){
            if(users[userId].answers[id]==="optionOne"){
                 choosedOne.push(users[userId].answers[id])
