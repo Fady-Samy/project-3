@@ -25,26 +25,26 @@ class QuestionPage extends Component {
         return (
             <Fragment>
                 <Nav/>
-                <div className="quest-card">
+                <div id="question-page" className="card">
                     <div className="title">
                         <h3> { users[questions[id].author].name } asks </h3>
                     </div>
                     <div className="quest-info">
                         {<img src={users[questions[id].author].avatarURL} alt="avatar"></img>}
                         {!isAnswered && 
-                            <div className="unanswered">
+                            <div className="info">
                                 <h3>Would You Rather</h3>
                                 <form className="question-options">
                                     <input type="radio" name="answer" value="optionOne"/>
                                     <label >{questions[id].optionOne.text}</label><br/>
                                     <input type="radio" name="answer" value="optionTwo"/>
                                     <label >{questions[id].optionTwo.text}</label><br/>
-                                    <button className="viewBtn" type="submit" onClick={this.handleSubmit}> Submit</button>
+                                    <button id="answerBtn" className="btn" type="submit" onClick={this.handleSubmit}> Submit</button>
                                 </form>
                             </div>
                         }
                         {isAnswered && 
-                            <div className="answered">
+                            <div className="info">
                                 <h3 style={{fontWeight:"bold"}}>Results:</h3>
 
                                 <div className={answer==="optionOne"? "selected" :""}>
@@ -55,7 +55,7 @@ class QuestionPage extends Component {
                                     <p id="result"> {choosedOne} out of {numUsers} votes</p>
                                 </div>
 
-                                <div className={answer==="optionTwo"? "selected" :""}>
+                                <div id="optionTwo" className={answer==="optionTwo"? "selected" :""}>
                                     <p>Would you rather {questions[id].optionTwo.text}</p>
                                     <div className="w3-border">
                                         <div className="w3-green" style={{width:`${twoPercntage}%`}}>{twoPercntage}%</div>

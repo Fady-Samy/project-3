@@ -14,7 +14,7 @@ class Polls extends Component {
         return (
             <Fragment>
                 {questionList.map( (questId) =>(
-                    <div className="pollCard" key={questId}>
+                    <div id="pollcard" className="card" key={questId}>
                         <div className="title">
                            <h3> { users[questions[questId].author].name } asks </h3>
                         </div>
@@ -23,7 +23,7 @@ class Polls extends Component {
                             <div className="pollDetails">
                                 <h3>Would You Rather</h3>
                                 <p>...{[questions[questId].optionOne.text]}...</p>
-                                <button className="viewBtn" onClick={(e) => this.toPoll(e, questId)} >View Poll</button>
+                                <button id="viewBtn" className="btn" onClick={(e) => this.toPoll(e, questId)} >View Poll</button>
                             </div>
                         </div>
                     </div>

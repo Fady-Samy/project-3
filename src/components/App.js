@@ -1,7 +1,7 @@
 import React, { Component, Fragment} from 'react';
 import {connect} from 'react-redux'
 import {handleInitialData} from '../actions/shared'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import Login from './Login'
 import Home from './Home'
@@ -30,10 +30,10 @@ class App extends Component {
             <Route path='/pageerror' component={PageError}/>
           </Fragment>
           : 
-          <Fragment>
+          <Switch>
             <Route path='/signup' component={Signup}/>
             <Route path='/*'component={Login}/>
-          </Fragment>
+          </Switch>
          
           }
         </div>

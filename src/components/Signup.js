@@ -43,7 +43,7 @@ class Signup extends Component {
                     <ImageInput className="create-contact-avatar-input" name='avatarURL' maxHeight={64}/>
                     <input id="username" type="text" value={input} onChange={this.handleInput} placeholder="Enter your name"/>
                 </form>
-                <Link to={input!=='' ? '/home' : '/signup'} className='btn' onClick={this.handleSignup}>Sign Up</Link>
+                <Link to={input!=='' ? '/home' : '/signup'} id="signup-btn" className='btn' onClick={this.handleSignup}>Sign Up</Link>
             </div>
         );
     }

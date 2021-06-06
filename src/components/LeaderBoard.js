@@ -10,7 +10,7 @@ class LeaderBoard extends Component {
                 <Nav/>
                 <div className="leaderCard">
                     {leaderUsers.map((user=>(
-                        <div className="card-content" key={user[5]}>
+                        <div id="leaderCard" className="card" key={user[5]}>
                             <div className="card-img">
                                 <img src={user[1]} alt=""></img>
                             </div>

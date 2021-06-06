@@ -47,7 +47,7 @@ class NewQuestion extends Component {
         return (
             <Fragment>
                 <Nav/>
-                <div className="newquest-card">
+                <div id="new-quest" className="card">
                     <div className="card-title">
                         <h2>Cretae New Question</h2>
                     </div>
@@ -56,8 +56,9 @@ class NewQuestion extends Component {
                         <input id="optionone" type="text" value={optionOne} onChange={this.handleOptionOne} placeholder=" Enter Option One Here"/>
                         <p id="or">OR</p>
                         <input id="optiontwo" type="text" value={optionTwo} onChange={this.handleOptionTwo} placeholder=" Enter Option Two Here"/>
+                        <button type="submit" onClick={this.handleSubmit} id="submit-new" className="btn">Submit</button>
                     </div>
-                    <button type="submit" onClick={this.handleSubmit} className="viewBtn">Submit</button>
+                    
                 </div>
             </Fragment>
            

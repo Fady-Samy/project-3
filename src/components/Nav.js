@@ -14,30 +14,36 @@ class Nav extends Component{
         
         return (
             <nav className='nav'>
-                <ul>
+                <div>
+                    <ul>
+                        <li>
+                            <NavLink to='/home' exact className="navLink">
+                                Home
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/add' className="navLink">
+                                New Question
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/leaderboard' className="navLink">
+                                Leader Board
+                            </NavLink>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
                     <li>
-                        <NavLink to='/home' exact className="navLink">
-                            Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/add' className="navLink">
-                            New Question
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/leaderboard' className="navLink">
-                            Leader Board
-                        </NavLink>
-                    </li>
-                    <li>
-                        <span>Hello, {this.props.loggedUser}</span>
-                        <img src={this.props.avatar} alt="avatar"></img>
-                    </li>
-                    <li>
-                        <Link to='/' onClick={this.signOut}> Signout </Link>  
-                    </li>
-                </ul>
+                            <span>Hello, {this.props.loggedUser}</span>
+                            <img src={this.props.avatar} alt="avatar"></img>
+                        </li>
+                        <li>
+                            <Link to='/' onClick={this.signOut}> Signout </Link>  
+                        </li>
+                    </ul>
+                </div>
             </nav>
             );
     }
